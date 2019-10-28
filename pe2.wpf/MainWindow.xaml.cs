@@ -23,7 +23,7 @@ namespace pe2.wpf
         public MainWindow()
         {
             InitializeComponent();
-            ////
+            /////
         }
 
         
