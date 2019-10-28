@@ -23,36 +23,10 @@ namespace pe2.wpf
         public MainWindow()
         {
             InitializeComponent();
-            //Wat commentaar
+            //
         }
 
-        private void WinPE2_Loaded(object sender, RoutedEventArgs e)
-        {
-            //Voorafje();
-        }
-
-        private void Voorafje()
-        {
-        //    jaartallen.Add(1302);
-        //    jaartallen.Add(1830);
-        //    jaartallen.Add(1492);
-        //    jaartallen.Add(1815);
-        //    jaartallen.Add(1066);
-        //    gebeurtenissen.Add("Slag der gulden sporen");
-        //    gebeurtenissen.Add("Onafhankelijkheid");
-        //    gebeurtenissen.Add("Ontdekking Amerika Christoffel Colombus");
-        //    gebeurtenissen.Add("Slag bij Waterloo");
-        //    gebeurtenissen.Add("Slag bij Hastings");
-        //    landen.Add("België");
-        //    landen.Add("België");
-        //    landen.Add("Amerkika");
-        //    landen.Add("België");
-        //    landen.Add("UK");
-        //    cmbLand.Items.Add("België");
-        //    cmbLand.Items.Add("Amerika");
-        //    cmbLand.Items.Add("UK");
-
-        }
+        
 
  
  
