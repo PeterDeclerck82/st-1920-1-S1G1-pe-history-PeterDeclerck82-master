@@ -5,20 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:pe2.wpf"
         mc:Ignorable="d"
-        Title="PE2" Height="574.625" Width="800" Loaded="WinPE2_Loaded">
+        Title="PE2" Height="574.625" Width="800" Loaded="WinPE2_Loaded" >
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="311*"/>
+            <ColumnDefinition Width="86*"/>
+        </Grid.ColumnDefinitions>
         <Label Content="Jaartal : " HorizontalAlignment="Left" Margin="24,26,0,0" VerticalAlignment="Top"/>
         <Label Content="Gebeurtenis : " HorizontalAlignment="Left" Margin="24,57,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtJaartal" HorizontalAlignment="Left" Height="23" Margin="137,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="80"/>
-        <TextBox x:Name="txtGebeurtenis" HorizontalAlignment="Left" Height="23" Margin="137,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="608"/>
-        <Button x:Name="btnToevoegen" Content="Toevoegen" HorizontalAlignment="Left" Margin="24,137,0,0" VerticalAlignment="Top" Width="104" Height="26"  IsDefault="True"/>
+        <TextBox x:Name="txtGebeurtenis" HorizontalAlignment="Left" Height="23" Margin="137,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="608" Grid.ColumnSpan="2"/>
+        <Button x:Name="btnToevoegen" Content="Toevoegen" HorizontalAlignment="Left" Margin="24,137,0,0" VerticalAlignment="Top" Width="104" Height="26"  IsDefault="True" Click="BtnToevoegen_Click"/>
         <Label Content="Land :" HorizontalAlignment="Left" Margin="24,88,0,0" VerticalAlignment="Top" Width="83"/>
-        <ComboBox x:Name="cmbLand" HorizontalAlignment="Left" Margin="439,92,0,0" VerticalAlignment="Top" Width="306"/>
+        <ComboBox x:Name="cmbLand" HorizontalAlignment="Left" Margin="439,92,0,0" VerticalAlignment="Top" Width="306" Grid.ColumnSpan="2"/>
         <TextBox x:Name="txtLand" HorizontalAlignment="Left" Height="23" Margin="137,92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="269"/>
-        <Label x:Name="lblFout" Content="Er is iets fout gelopen ..." HorizontalAlignment="Left" Margin="147,139,0,0" VerticalAlignment="Top" Width="598" Height="79" Background="#FFF73C3C" Foreground="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+        <Label x:Name="lblFout" Content="" HorizontalAlignment="Left" Margin="147,139,0,0" VerticalAlignment="Top" Width="598" Height="79" Background="#FFF73C3C" Foreground="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" Grid.ColumnSpan="2"/>
         <Label Content="Historische gebeurtenissen" HorizontalAlignment="Left" Margin="26,244,0,0" VerticalAlignment="Top" Width="173"/>
-        <ListBox x:Name="lstGeschiedenis" HorizontalAlignment="Left" Height="224" Margin="24,298,0,0" VerticalAlignment="Top" Width="721"/>
-        <Button x:Name="btnLandGebruiken" Content="&lt;" ToolTip="Kies dit land" HorizontalAlignment="Left" Margin="411,92,0,0" VerticalAlignment="Top" Width="23" Height="23" />
+        <ListBox x:Name="lstGeschiedenis" HorizontalAlignment="Left" Height="224" Margin="24,298,0,0" VerticalAlignment="Top" Width="721" Grid.ColumnSpan="2"/>
+        <Button x:Name="btnLandGebruiken" Content="&lt;" ToolTip="Kies dit land" HorizontalAlignment="Left" Margin="411,92,0,0" VerticalAlignment="Top" Width="23" Height="23" Click="BtnLandGebruiken_Click" />
         <Button x:Name="btnSortUp" FontFamily="Segoe UI Symbol" Content="&#xE110; Jaartal" HorizontalAlignment="Left" Margin="204,244,0,0" VerticalAlignment="Top" Width="75" />
         <Button x:Name="btnSortDown" FontFamily="Segoe UI Symbol" Content="&#xE1FD; Jaartal" HorizontalAlignment="Left" Margin="294,244,0,0" VerticalAlignment="Top" Width="75" />
 
