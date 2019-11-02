@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 
 namespace pe2.wpf
 {
-    /// <summary>
+    //// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
