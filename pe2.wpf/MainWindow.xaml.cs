@@ -20,16 +20,16 @@ namespace pe2.wpf
     /// </summary>
     public partial class MainWindow : Window
     {
-            List<string> fillItemsWhen = new List<string>();
-            List<string> fillItemsWhat = new List<string>();
-            List<string> fillItemsWhere = new List<string>();
+            List<string> listWhen = new List<string>();
+            List<string> listWhat = new List<string>();
+            List<string> listWhere = new List<string>();
 
-
-        public MainWindow()
+    public MainWindow()
         {
             InitializeComponent();
             /////
         }
+
 
         private void WinPE2_Loaded(object sender, RoutedEventArgs e)
         {
@@ -40,21 +40,21 @@ namespace pe2.wpf
         private void FillStartUp()
         {
 
-            fillItemsWhen.Add("1302");
-            fillItemsWhen.Add("1830");
-            fillItemsWhen.Add("1492");
-            fillItemsWhen.Add("1815");
-            fillItemsWhen.Add("1066");
-            fillItemsWhat.Add("Slag der gulden sporen");
-            fillItemsWhat.Add("Onafhankelijkheid");
-            fillItemsWhat.Add("Ontdekking Amerika Christoffel Colombus");
-            fillItemsWhat.Add("Slag bij Waterloo");
-            fillItemsWhat.Add("Slag bij Hastings");
-            fillItemsWhere.Add("België");
-            fillItemsWhere.Add("België");
-            fillItemsWhere.Add("USA");
-            fillItemsWhere.Add("België");
-            fillItemsWhere.Add("UK");
+            listWhen.Add("1302");
+            listWhen.Add("1830");
+            listWhen.Add("1492");
+            listWhen.Add("1815");
+            listWhen.Add("1066");
+            listWhat.Add("Slag der gulden sporen");
+            listWhat.Add("Onafhankelijkheid");
+            listWhat.Add("Ontdekking Amerika Christoffel Colombus");
+            listWhat.Add("Slag bij Waterloo");
+            listWhat.Add("Slag bij Hastings");
+            listWhere.Add("België");
+            listWhere.Add("België");
+            listWhere.Add("USA");
+            listWhere.Add("België");
+            listWhere.Add("UK");
             cmbLand.Items.Add("België");
             cmbLand.Items.Add("USA");
             cmbLand.Items.Add("UK");
@@ -65,11 +65,11 @@ namespace pe2.wpf
 
         private void LusListGeschiedenis()
         {
-            for (int i = 0; i < fillItemsWhat.Count; i++)
+            for (int i = 0; i < listWhat.Count; i++)
             {
-                string feedbackListWhen = (fillItemsWhen.ElementAt(i));
-                string feedbackListWhat = (fillItemsWhat.ElementAt(i));
-                string feedbackListWhere = (fillItemsWhere.ElementAt(i));
+                string feedbackListWhen = (listWhen.ElementAt(i));
+                string feedbackListWhat = (listWhat.ElementAt(i));
+                string feedbackListWhere = (listWhere.ElementAt(i));
 
                 lstGeschiedenis.Items.Add($" {feedbackListWhen} : {feedbackListWhat}  ({feedbackListWhere})");
 
@@ -83,7 +83,7 @@ namespace pe2.wpf
             string when = txtJaartal.Text;
             string where = txtLand.Text;
 
-            fillItemsWhen.Add(when);
+            listWhen.Add(when);
             addWhat(what);
             addWhere(where);
 
@@ -94,26 +94,26 @@ namespace pe2.wpf
 
         private void addWhere(string where)
         {
-            if (!fillItemsWhere.Contains(where))
+            if (!listWhere.Contains(where))
             {
-                 fillItemsWhere.Add(where);
+                 listWhere.Add(where);
                  cmbLand.Items.Add(where);
             }
             else
             {
-                fillItemsWhere.Add(where);
+                listWhere.Add(where);
             }
         }
 
         private void addWhat(string what)
         {
-            if (!fillItemsWhat.Contains(what))
+            if (!listWhat.Contains(what))
             {
-                fillItemsWhat.Add(what);
+                listWhat.Add(what);
             }
             else
             {
-                fillItemsWhat.Add(what);
+                listWhat.Add(what);
                 lblFout.Content += " deze gebeurtenis staat reeds geregistreerd ... \n";
                 lblFout.Visibility = Visibility.Visible;
 
@@ -165,6 +165,36 @@ namespace pe2.wpf
             }
         }
 
+
+        private void SortLists(List<int> list)
+        {
+
+
+
+            for (int i = 1; i < listWhen.Count; i++)
+            {
+                for (int j = 0; j < (listWhen.Count - i); j++)
+                {
+                    if (listWhen[j] > listWhen[j + 1])
+                    {
+                        string tempWhen = listWhen[j];
+                        listWhen[j] = listWhen[j + 1];
+                        listWhen[j + 1] = tempWhen;
+
+                        string tempWhat = listWhat[j];
+                        listWhen[j] = listWhen[j + 1];
+                        listWhen[j + 1] = tempWhat;
+
+                        string tempWhere = listWhere[j];
+                        listWhere[j] = listWhere[j + 1];
+                        listWhere[j + 1] = tempWhere;
+                    }
+                }
+            }
+
+           
+
+        }
 
     }
 }
