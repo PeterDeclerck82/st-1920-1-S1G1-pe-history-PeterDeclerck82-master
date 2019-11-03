@@ -23,7 +23,7 @@
         <Label Content="Historische gebeurtenissen" HorizontalAlignment="Left" Margin="26,244,0,0" VerticalAlignment="Top" Width="173"/>
         <ListBox x:Name="lstGeschiedenis" HorizontalAlignment="Left" Height="224" Margin="24,298,0,0" VerticalAlignment="Top" Width="721" Grid.ColumnSpan="2"/>
         <Button x:Name="btnLandGebruiken" Content="&lt;" ToolTip="Kies dit land" HorizontalAlignment="Left" Margin="411,92,0,0" VerticalAlignment="Top" Width="23" Height="23" Click="BtnLandGebruiken_Click" />
-        <Button x:Name="btnSortUp" FontFamily="Segoe UI Symbol" Content="&#xE110; Jaartal" HorizontalAlignment="Left" Margin="204,244,0,0" VerticalAlignment="Top" Width="75" />
+        <Button x:Name="btnSortUp" FontFamily="Segoe UI Symbol" Content="&#xE110; Jaartal" HorizontalAlignment="Left" Margin="204,244,0,0" VerticalAlignment="Top" Width="75" Click="BtnSortUp_Click" />
         <Button x:Name="btnSortDown" FontFamily="Segoe UI Symbol" Content="&#xE1FD; Jaartal" HorizontalAlignment="Left" Margin="294,244,0,0" VerticalAlignment="Top" Width="75" />
 
     </Grid>

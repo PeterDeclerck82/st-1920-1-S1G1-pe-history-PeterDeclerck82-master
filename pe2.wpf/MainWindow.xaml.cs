@@ -20,7 +20,7 @@ namespace pe2.wpf
     /// </summary>
     public partial class MainWindow : Window
     {
-            List<string> listWhen = new List<string>();
+            List<int> listWhen = new List<int>();
             List<string> listWhat = new List<string>();
             List<string> listWhere = new List<string>();
 
@@ -40,11 +40,11 @@ namespace pe2.wpf
         private void FillStartUp()
         {
 
-            listWhen.Add("1302");
-            listWhen.Add("1830");
-            listWhen.Add("1492");
-            listWhen.Add("1815");
-            listWhen.Add("1066");
+            listWhen.Add(1302);
+            listWhen.Add(1830);
+            listWhen.Add(1492);
+            listWhen.Add(1815);
+            listWhen.Add(1066);
             listWhat.Add("Slag der gulden sporen");
             listWhat.Add("Onafhankelijkheid");
             listWhat.Add("Ontdekking Amerika Christoffel Colombus");
@@ -67,7 +67,7 @@ namespace pe2.wpf
         {
             for (int i = 0; i < listWhat.Count; i++)
             {
-                string feedbackListWhen = (listWhen.ElementAt(i));
+                int feedbackListWhen = (listWhen.ElementAt(i));
                 string feedbackListWhat = (listWhat.ElementAt(i));
                 string feedbackListWhere = (listWhere.ElementAt(i));
 
@@ -80,16 +80,28 @@ namespace pe2.wpf
         private void AddNewLineLstGeschiedenis()
         {
             string what = txtGebeurtenis.Text;
-            string when = txtJaartal.Text;
+            int when = Convert.ToInt32(txtJaartal.Text);
             string where = txtLand.Text;
 
-            listWhen.Add(when);
+            addWhen(when);
             addWhat(what);
             addWhere(where);
 
             lstGeschiedenis.Items.Clear();
             LusListGeschiedenis();
 
+        }
+
+        private void addWhen(int when)
+        {
+            if (!listWhen.Contains(when))
+            {
+                listWhen.Add(when);
+            }
+            else
+            {
+                listWhen.Add(when);
+            }
         }
 
         private void addWhere(string where)
@@ -124,6 +136,7 @@ namespace pe2.wpf
         {
             AddCommentLabelError();
             AddNewLineLstGeschiedenis();
+            
         }
 
         private void BtnLandGebruiken_Click(object sender, RoutedEventArgs e)
@@ -134,6 +147,7 @@ namespace pe2.wpf
 
         private void AddCommentLabelError()
         {
+
             if ((txtGebeurtenis.Text) == "" || (txtGebeurtenis.Text) == null)
 
             {
@@ -165,11 +179,9 @@ namespace pe2.wpf
             }
         }
 
-
-        private void SortLists(List<int> list)
+        // gebruik van de Bubble Sort methode
+        private void SortLists()
         {
-
-
 
             for (int i = 1; i < listWhen.Count; i++)
             {
@@ -177,13 +189,13 @@ namespace pe2.wpf
                 {
                     if (listWhen[j] > listWhen[j + 1])
                     {
-                        string tempWhen = listWhen[j];
+                        int tempWhen = listWhen[j];
                         listWhen[j] = listWhen[j + 1];
                         listWhen[j + 1] = tempWhen;
 
                         string tempWhat = listWhat[j];
-                        listWhen[j] = listWhen[j + 1];
-                        listWhen[j + 1] = tempWhat;
+                        listWhat[j] = listWhat[j + 1];
+                        listWhat[j + 1] = tempWhat;
 
                         string tempWhere = listWhere[j];
                         listWhere[j] = listWhere[j + 1];
@@ -196,5 +208,9 @@ namespace pe2.wpf
 
         }
 
+        private void BtnSortUp_Click(object sender, RoutedEventArgs e)
+        {
+            SortLists();
+        }
     }
 }
